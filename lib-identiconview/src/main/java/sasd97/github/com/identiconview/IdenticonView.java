@@ -5,58 +5,104 @@ package sasd97.github.com.identiconview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
-import sasd97.github.com.identiconview.providers.GithubFieldProvider;
-import sasd97.github.com.identiconview.providers.IdenticonFieldProvider;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import sasd97.github.com.identiconview.field.GithubFieldProvider;
+import sasd97.github.com.identiconview.field.IdenticonFieldProvider;
+import sasd97.github.com.identiconview.palette.GithubPaletteProvider;
+import sasd97.github.com.identiconview.palette.PaletteProvider;
+
+import static sasd97.github.com.identiconview.IdenticonView.ColorMatchingType.AUTO_COLOR_MATCHING;
+import static sasd97.github.com.identiconview.IdenticonView.ColorMatchingType.MANUAL_COLOR_MATCHING;
 
 public class IdenticonView extends View {
+
+    @IntDef({AUTO_COLOR_MATCHING, MANUAL_COLOR_MATCHING})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface ColorMatchingType {
+        int AUTO_COLOR_MATCHING = 0;
+        int MANUAL_COLOR_MATCHING = 1;
+    }
 
     private int cellSize;
     private int boundSize;
     private int verticalPadding;
     private int horizontalPadding;
 
-    private IdenticonFieldProvider identiconFieldProvider = new GithubFieldProvider();
-
+    @ColorInt int activeCellsColor;
+    @ColorInt int inactiveCellsColor;
+    @ColorMatchingType int colorMatchingType;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    private PaletteProvider paletteProvider = new GithubPaletteProvider();
+    private IdenticonFieldProvider fieldProvider = new GithubFieldProvider();
 
     public IdenticonView(Context context) {
         super(context);
-        setup();
+
+        if (isInEditMode()) return;
+        setup(context, null);
     }
 
     public IdenticonView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        setup();
+
+        if (isInEditMode()) return;
+        setup(context, attrs);
     }
 
     public IdenticonView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setup();
+
+        if (isInEditMode()) return;
+        setup(context, attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public IdenticonView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        setup();
+
+        if (isInEditMode()) return;
+        setup(context, attrs);
     }
 
-    private void setup() {
+    private void setup(@NonNull Context context,
+                       @Nullable AttributeSet attrs) {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);
 
-        setText("Hello World!");
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.IdenticonView);
+
+        colorMatchingType = typedArray.getInt(R.styleable.IdenticonView_colorMode, AUTO_COLOR_MATCHING);
+        activeCellsColor = typedArray.getColor(R.styleable.IdenticonView_cellsColor, Color.DKGRAY);
+        inactiveCellsColor = typedArray.getColor(R.styleable.IdenticonView_backgroundColor, Color.WHITE);
+
+        String text = typedArray.getString(R.styleable.IdenticonView_text);
+
+        typedArray.recycle();
+
+        obtainColors(colorMatchingType);
+        setText(text);
+    }
+
+    private void obtainColors(@ColorMatchingType int colorMatchingType) {
+        if (colorMatchingType != AUTO_COLOR_MATCHING) return;
+
+        inactiveCellsColor = paletteProvider.getInactiveColor();
+        activeCellsColor = paletteProvider.getActiveColor();
     }
 
     @Override
@@ -66,8 +112,8 @@ public class IdenticonView extends View {
     }
 
     private void drawIdenticon(@NonNull Canvas canvas) {
-        for (int row = 0; row < identiconFieldProvider.getFieldCapacity(); row++) {
-            for (int column = 0; column < identiconFieldProvider.getFieldCapacity(); column++) {
+        for (int row = 0; row < fieldProvider.getFieldCapacity(); row++) {
+            for (int column = 0; column < fieldProvider.getFieldCapacity(); column++) {
                 int x = column * cellSize + horizontalPadding;
                 int y = row * cellSize + verticalPadding;
 
@@ -79,8 +125,8 @@ public class IdenticonView extends View {
 
     @ColorInt
     private int obtainColorForCell(int column, int row) {
-        boolean isActive = identiconFieldProvider.isCellActive(column, row);
-        return isActive ? Color.RED : Color.BLACK;
+        boolean isActive = fieldProvider.isCellActive(column, row);
+        return isActive ? activeCellsColor : inactiveCellsColor;
     }
 
     @Override
@@ -88,23 +134,23 @@ public class IdenticonView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         boundSize = Math.min(getMeasuredWidth(), getMeasuredHeight());
 
-        cellSize = boundSize / identiconFieldProvider.getFieldCapacity();
+        cellSize = boundSize / fieldProvider.getFieldCapacity();
 
-        int fieldSize = cellSize * identiconFieldProvider.getFieldCapacity();
+        int fieldSize = cellSize * fieldProvider.getFieldCapacity();
 
         horizontalPadding = (getMeasuredWidth() - fieldSize) / 2;
         verticalPadding = (getMeasuredHeight() - fieldSize) / 2;
     }
 
     public void setText(@Nullable String text) {
-        identiconFieldProvider.generateFieldFor(text);
+        fieldProvider.generateFieldFor(text);
         invalidate();
     }
 
-    public void setIdenticonFieldProvider(@Nullable IdenticonFieldProvider identiconFieldProvider) {
-        if (identiconFieldProvider == null)
-            throw new IllegalArgumentException("identiconFieldProvider should not be null");
-        this.identiconFieldProvider = identiconFieldProvider;
+    public void setFieldProvider(@Nullable IdenticonFieldProvider fieldProvider) {
+        if (fieldProvider == null)
+            throw new IllegalArgumentException("fieldProvider should not be null");
+        this.fieldProvider = fieldProvider;
         invalidate();
     }
 }

@@ -1,7 +1,6 @@
-package sasd97.github.com.identiconview.providers;
+package sasd97.github.com.identiconview.field;
 
 import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.security.MessageDigest;

@@ -1,7 +1,7 @@
 // Copyright © 2017 by Alexander Dadukin (st235@yandex.ru)
 // All rights reserved.
 
-package sasd97.github.com.identiconview.providers;
+package sasd97.github.com.identiconview.field;
 
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
