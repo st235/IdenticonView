@@ -14,23 +14,11 @@ public class GithubFieldProvider extends IdenticonFieldProvider {
 
     private static final int FIELD_CAPACITY = 5;
     private static final int CENTER_COLUMN_INDEX = 3;
-    private static final String HASH_ALGORITHM = "SHA-256";
 
     @Override
     @IntRange(from = 1)
     public int getFieldCapacity() {
         return FIELD_CAPACITY;
-    }
-
-    @Override
-    public void generateFieldFor(@Nullable String text) {
-        try {
-            final MessageDigest digest = java.security.MessageDigest.getInstance(HASH_ALGORITHM);
-            digest.update(text == null ? new byte[0] : text.getBytes());
-            hash = digest.digest();
-        } catch (NoSuchAlgorithmException exception) {
-            throw new RuntimeException(exception);
-        }
     }
 
     protected int getSymmetricColumnIndex(int row) {

@@ -94,8 +94,8 @@ public class IdenticonView extends View {
 
         typedArray.recycle();
 
-        obtainColors(colorMatchingType);
         setText(text);
+        obtainColors(colorMatchingType);
     }
 
     private void obtainColors(@ColorMatchingType int colorMatchingType) {
@@ -143,7 +143,9 @@ public class IdenticonView extends View {
     }
 
     public void setText(@Nullable String text) {
-        fieldProvider.generateFieldFor(text);
+        fieldProvider.generateHash(text);
+        paletteProvider.generateHash(text);
+        obtainColors(colorMatchingType);
         invalidate();
     }
 
