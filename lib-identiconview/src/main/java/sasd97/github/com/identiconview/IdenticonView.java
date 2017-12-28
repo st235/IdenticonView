@@ -47,6 +47,8 @@ public class IdenticonView extends View {
     @ColorMatchingType int colorMatchingType;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    private String text;
+
     private PaletteProvider paletteProvider = new GithubPaletteProvider();
     private IdenticonFieldProvider fieldProvider = new GithubFieldProvider();
 
@@ -143,8 +145,22 @@ public class IdenticonView extends View {
     }
 
     public void setText(@Nullable String text) {
+        this.text = text;
         fieldProvider.generateHash(text);
         paletteProvider.generateHash(text);
+        obtainColors(colorMatchingType);
+        invalidate();
+    }
+
+    public void setColors(@ColorInt int cellsColor, @ColorInt int backgroundColor) {
+        colorMatchingType = MANUAL_COLOR_MATCHING;
+        activeCellsColor = cellsColor;
+        inactiveCellsColor = backgroundColor;
+        invalidate();
+    }
+
+    public void resetColors() {
+        this.colorMatchingType = AUTO_COLOR_MATCHING;
         obtainColors(colorMatchingType);
         invalidate();
     }
