@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/st235/Identicons/master/pictures/logo.png" width="270" height="270">
+<img src="https://raw.githubusercontent.com/st235/Identicons/master/pictures/logo.png" width="128" height="128">
+
 # Identicons
 
 Probably the most original way to visualize hashes.
