@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    android:padding="8dp">
+
+    <sasd97.github.com.identiconview.IdenticonView
+        android:id="@+id/identicon"
+        android:layout_width="84dp"
+        android:layout_height="84dp" />
+
+    <TextView
+        android:id="@+id/identiconText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@color/colorGrey"/>
+</LinearLayout>

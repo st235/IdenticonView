@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IdenticonView">
+        <attr name="colorMode" format="enum">
+            <enum name="auto" value="0" />
+            <enum name="manual" value="1" />
+        </attr>
+        <attr name="cellsColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+</resources>
