@@ -7,9 +7,9 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="8dp"
-    tools:context="sasd97.github.com.identicons.IdenticonActivity">
+    tools:context="st235.github.com.app_identicons.IdenticonActivity">
 
-    <sasd97.github.com.identiconview.IdenticonView
+    <st235.github.com.identiconview.IdenticonView
         android:id="@+id/identicon"
         android:layout_width="256dp"
         android:layout_height="256dp" />

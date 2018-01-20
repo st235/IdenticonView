@@ -1,1 +1,1 @@
-include ':app', ':lib-identiconview'
+include ':app', ':identiconview'

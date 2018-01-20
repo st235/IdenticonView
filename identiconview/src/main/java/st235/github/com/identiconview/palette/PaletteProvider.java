@@ -1,8 +1,8 @@
-package sasd97.github.com.identiconview.palette;
+package st235.github.com.identiconview.palette;
 
 import android.support.annotation.ColorInt;
 
-import sasd97.github.com.identiconview.HashHolder;
+import st235.github.com.identiconview.HashHolder;
 
 /**
  * Created by alexander on 28/12/2017.

@@ -1,7 +1,7 @@
 // Copyright © 2017 by Alexander Dadukin (st235@yandex.ru)
 // All rights reserved.
 
-package sasd97.github.com.identiconview;
+package st235.github.com.identiconview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,13 +20,13 @@ import android.view.View;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import sasd97.github.com.identiconview.field.GithubFieldProvider;
-import sasd97.github.com.identiconview.field.IdenticonFieldProvider;
-import sasd97.github.com.identiconview.palette.GithubPaletteProvider;
-import sasd97.github.com.identiconview.palette.PaletteProvider;
+import st235.github.com.identiconview.field.GithubFieldProvider;
+import st235.github.com.identiconview.field.IdenticonFieldProvider;
+import st235.github.com.identiconview.palette.GithubPaletteProvider;
+import st235.github.com.identiconview.palette.PaletteProvider;
 
-import static sasd97.github.com.identiconview.IdenticonView.ColorMatchingType.AUTO_COLOR_MATCHING;
-import static sasd97.github.com.identiconview.IdenticonView.ColorMatchingType.MANUAL_COLOR_MATCHING;
+import static st235.github.com.identiconview.IdenticonView.ColorMatchingType.AUTO_COLOR_MATCHING;
+import static st235.github.com.identiconview.IdenticonView.ColorMatchingType.MANUAL_COLOR_MATCHING;
 
 public class IdenticonView extends View {
 

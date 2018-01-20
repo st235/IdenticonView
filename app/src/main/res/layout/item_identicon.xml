@@ -9,7 +9,7 @@
     android:background="?attr/selectableItemBackgroundBorderless"
     android:padding="8dp">
 
-    <sasd97.github.com.identiconview.IdenticonView
+    <st235.github.com.identiconview.IdenticonView
         android:id="@+id/identicon"
         android:layout_width="84dp"
         android:layout_height="84dp"

@@ -1,4 +1,4 @@
-package sasd97.github.com.identicons;
+package st235.github.com.app_identicons;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import sasd97.github.com.identiconview.IdenticonView;
+import st235.github.com.identiconview.IdenticonView;
 
 /**
  * Created by alexander on 28/12/2017.

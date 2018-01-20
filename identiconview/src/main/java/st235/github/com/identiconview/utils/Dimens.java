@@ -1,4 +1,4 @@
-package sasd97.github.com.identiconview.utils;
+package st235.github.com.identiconview.utils;
 
 import android.content.res.Resources;
 import android.util.TypedValue;

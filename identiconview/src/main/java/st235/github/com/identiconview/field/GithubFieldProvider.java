@@ -1,14 +1,6 @@
-package sasd97.github.com.identiconview.field;
+package st235.github.com.identiconview.field;
 
 import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-/**
- * Created by alexander on 27/12/2017.
- */
 
 public class GithubFieldProvider extends IdenticonFieldProvider {
 

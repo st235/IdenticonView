@@ -1,7 +1,7 @@
 // Copyright © 2017 by Alexander Dadukin (st235@yandex.ru)
 // All rights reserved.
 
-package sasd97.github.com.identiconview.utils;
+package st235.github.com.identiconview.utils;
 
 /**
  * A set of auxiliary mathematical utilities.

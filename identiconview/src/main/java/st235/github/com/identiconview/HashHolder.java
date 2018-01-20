@@ -1,6 +1,5 @@
-package sasd97.github.com.identiconview;
+package st235.github.com.identiconview;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.security.MessageDigest;

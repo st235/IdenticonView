@@ -1,4 +1,4 @@
-package sasd97.github.com.identicons;
+package st235.github.com.app_identicons;
 
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
@@ -12,10 +12,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
-import sasd97.github.com.identiconview.IdenticonView;
+import st235.github.com.identiconview.IdenticonView;
 
 public class IdenticonActivity extends AppCompatActivity {
 

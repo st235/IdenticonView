@@ -7,12 +7,31 @@ Probably the most original way to visualize hashes.
 ## Screens
 <img src="https://raw.githubusercontent.com/st235/Identicons/master/pictures/homescreen.png" width="270" height="480"> <img src="https://raw.githubusercontent.com/st235/Identicons/master/pictures/app.png" width="270" height="480">
 
+## Installation
+
+From maven
+
+```xml
+<dependency>
+  <groupId>com.github.st235</groupId>
+  <artifactId>identicon-view</artifactId>
+  <version>0.0.1</version>
+  <type>pom</type>
+</dependency>
+```
+
+From gradle
+
+```
+compile 'com.github.st235:identicon-view:0.0.1'
+```
+
 ## Usage
 To begin is the most difficult.
 I prepared the opportunity to configure the view straight from the markup.
 
 ```xml
-    <sasd97.github.com.identiconview.IdenticonView
+    <st235.github.com.identiconview.IdenticonView
         android:id="@+id/identicon"
         android:layout_width="84dp"
         android:layout_height="84dp"

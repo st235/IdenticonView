@@ -1,4 +1,4 @@
-package sasd97.github.com.identiconview.palette;
+package st235.github.com.identiconview.palette;
 
 import android.graphics.Color;
 import android.support.v4.graphics.ColorUtils;
