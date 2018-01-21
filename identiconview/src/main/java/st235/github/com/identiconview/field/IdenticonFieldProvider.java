@@ -1,4 +1,4 @@
-// Copyright © 2017 by Alexander Dadukin (st235@yandex.ru)
+// Copyright (c) 2017 by Alexander Dadukin (st235@yandex.ru)
 // All rights reserved.
 
 package st235.github.com.identiconview.field;

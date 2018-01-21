@@ -15,7 +15,7 @@ From maven
 <dependency>
   <groupId>com.github.st235</groupId>
   <artifactId>identiconview</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -23,7 +23,7 @@ From maven
 From gradle
 
 ```
-compile 'com.github.st235:identiconview:0.0.1'
+compile 'com.github.st235:identiconview:0.0.2'
 ```
 
 ## Usage
