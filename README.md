@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/st235/maven/identiconview/images/download.svg) ](https://bintray.com/st235/maven/identiconview/_latestVersion)
+
 <img src="https://raw.githubusercontent.com/st235/Identicons/master/pictures/logo.png" width="128" height="128">
 
 # Identicons
